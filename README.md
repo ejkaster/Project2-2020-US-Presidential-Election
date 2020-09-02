@@ -21,7 +21,7 @@ Our intent is to manipulate data and transform it to ultimately create 3-4 graph
 ![Inspo3](Images/Inspo3.PNG)
 
 ## Sketch:
-![SketchHome](Images/SketchHome.PNG)
-![SketchPg1](Images/SketchPg1.PNG)
-![SketchPg2](Images/SketchPg2.PNG)
-![SketchPg3](Images/SketchPg3.PNG)
+![SketchHome](Images/SketchHome.png)
+![SketchPg1](Images/SketchPg1.png)
+![SketchPg2](Images/SketchPg2.png)
+![SketchPg3](Images/SketchPg3.png)
