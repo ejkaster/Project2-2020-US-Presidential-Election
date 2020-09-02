@@ -16,6 +16,8 @@ Our intent is to manipulate data and transform it to ultimately create 3-4 graph
 
 
 ## Visualization Inspiration:
-
+![Inspo1](Images/Inspo1.PNG)
+![Inspo2](Images/Inspo2.PNG)
+![Inspo3](Images/Inspo3.PNG)
 
 ## Sketch:
