@@ -1,5 +1,5 @@
 from flask import Flask, jsonify
-from fetch_from_db import fetch_items
+from fetch_from_db import fetch_states, fetch_national
 
 from bson import json_util, ObjectId
 from flask.json import JSONEncoder
@@ -14,13 +14,25 @@ app.json_encoder = CustomJSONEncoder
 
 # Homepage
 @app.route("/")
+def home():
+    return(
+        f"<h1 align=center>Welcome to 2020 Presidential Election Page</h1><br/>"
+        f"<u>List of available routes </u> - <i>access data using paths below:</i><br/>"
+        f"Information by State:  /api/states<br/>"
+        f"Information by Date:   /api/national<br/>"
+      
+    )
 
 # All items
-@app.route('/api/items')
+@app.route('/api/states')
 def get_items():
-    items = fetch_items()
-    return jsonify(items)
+    states = fetch_states()
+    return jsonify(states)
 
+@app.route('/api/dates')
+def get_national():
+    national = fetch_national()
+    return jsonify(national)
 
 
 if __name__ == '__main__':
