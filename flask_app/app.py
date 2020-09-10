@@ -16,11 +16,10 @@ app.json_encoder = CustomJSONEncoder
 @app.route("/")
 def home():
     return(
-        f"<h1 align=center>Welcome to 2020 Presidential Election Page</h1><br/>"
+        f"<h1 align=center>Welcome to 2020 Presidential Election API</h1><br/>"
         f"<u>List of available routes </u> - <i>access data using paths below:</i><br/>"
         f"Information by State:  /api/states<br/>"
         f"Information by Date:   /api/national<br/>"
-      
     )
 
 # All items
@@ -29,7 +28,7 @@ def get_items():
     states = fetch_states()
     return jsonify(states)
 
-@app.route('/api/dates')
+@app.route('/api/national')
 def get_national():
     national = fetch_national()
     return jsonify(national)
