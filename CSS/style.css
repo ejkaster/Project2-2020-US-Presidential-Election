@@ -1,0 +1,139 @@
+body{
+	background-color: #06113C; 
+	height: 100%;
+	min-height: 100%;
+}
+
+.navbar{
+	color: white;
+	max-height: 50px; 
+	background-color: #981526; 
+	font-size: 15px; 
+	font-family: Georgia, Times, "Times New Roman", serif;
+	
+}
+
+.navbar li a:hover {
+	color: #ffffff;
+  }
+
+.navigation .navbar-brand{
+	color: white;
+	padding: inherit; 
+	font-weight: bold; 
+	background-color: #6E92AE;
+	font-family: Georgia, Times, "Times New Roman", serif;
+
+}
+
+.dropdown-item{
+    color: #dd5ecc; 
+}
+
+.dropdown-menu .dropdown-item:hover, .dropdown-menu .dropdown-item:active{
+	background-color:#E74B60; 
+	margin-right: 100px; 
+}
+
+.nav-link:hover{
+    background-color:#E74B60;
+}
+
+.container-fluid {
+	padding-top: 70px;
+	padding-bottom: 70px;
+  }
+  
+.bg-1{
+    background-color:#ffffff;
+    background-image: url("Images/pexels-aaron-schwartz-1093645.jpg");
+  	background-size: cover;
+    color: #06113C;
+  }
+
+/* .jumbotron{
+    background: url("/Images/pexels-aaron-schwartz-1093645.jpg") no-repeat center center; 
+    -webkit-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    background-size: 100% 100%;
+} */
+
+
+
+/* Media Queries */
+@media (max-width: 1500px){
+	.navbar-expand-lg{
+		background-color: #a16a9a;
+	}
+	.navbar{
+		max-height: none; 
+		padding: inherit;
+	}
+	.navbar div{
+		margin: inherit; 
+		background-color: white;  
+	}
+	.navbar-brand{
+		padding: 10px; 
+	}
+
+	button{
+		margin-left: auto; 
+	}
+
+	button:focus {
+		outline: 1px dotted;
+	}
+}
+
+.description-content {
+	margin-top: 50px;
+	margin-bottom: 50px;
+	padding: 20px;
+	color: black;
+	background-color: white;
+}
+
+.imageNav-content {
+	margin-top: 40px;
+	margin-bottom: 20px;
+	padding: 20px;
+	color: black;
+	background-color: white;
+}
+.description-header, .imageNav-header {
+	padding-top: 15px; 
+	padding-left: 4px;
+	color: #6E92AE;
+	font-size: 26px;
+	font-weight: bold;
+	font-family: Georgia, Times, "Times New Roman", serif;
+}
+
+img{
+	width: 100%;
+	height: 100%;
+}
+
+.description-image {
+	float: left;
+	width: 60%;
+	height: 60%;
+}
+
+p{
+	color: #414d4a;
+	font-size: 14px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+h3{
+	color: white;
+	font-family: Georgia, Times, "Times New Roman", serif;
+
+}
+.active, .imageNav-photo:hover{
+    border-color:#8b157c;
+    border-style: solid; 
+}
