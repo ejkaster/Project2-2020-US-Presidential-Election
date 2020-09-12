@@ -18,6 +18,18 @@ app.json_encoder = CustomJSONEncoder
 def welcome():
     return render_template("index.html")
 
+@app.route("/comparisons")
+def comparisons():
+    return render_template("comparisons.html")
+
+@app.route("/timeline")
+def comparisons():
+    return render_template("timeline.html")
+
+@app.route("/votepower")
+def comparisons():
+    return render_template("votepower.html")
+
 # API Homepage
 @app.route('/api/v1.0')
 def apis():
