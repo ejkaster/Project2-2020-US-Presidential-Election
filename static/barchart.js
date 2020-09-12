@@ -15,7 +15,7 @@ const chartWidth = svgWidth - chartMargin.left - chartMargin.right;
 const chartHeight = svgHeight - chartMargin.top - chartMargin.bottom;
 
 // Select body, append SVG area to it, and set the dimensions
-const svg = d3.select("body")
+const svg = d3.select("#bar-popular")
   .append("svg")
   .attr("height", svgHeight)
   .attr("width", svgWidth);
