@@ -23,11 +23,11 @@ def comparisons():
     return render_template("comparisons.html")
 
 @app.route("/timeline")
-def comparisons():
+def timeline():
     return render_template("timeline.html")
 
 @app.route("/votepower")
-def comparisons():
+def votepower():
     return render_template("votepower.html")
 
 # API Homepage
