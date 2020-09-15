@@ -1,158 +1,227 @@
-// Define SVG area dimensions
-const svgWidth = 700;
-const svgHeight = 500;
+// The code for the chart is wrapped inside a function that
+// automatically resizes the chart
+function makeResponsive() {
+
+    // if the SVG area isn't empty when the browser loads,
+    // remove it and replace it with a resized version of the chart
+    const svgArea = d3.select("body").select("svg");
+  
+  
+  // clear svg is not empty
+  if (!svgArea.empty()) {
+    svgArea.remove();
+  }
+  
+  // SVG wrapper dimensions are determined by the current width and
+  // height of the browser window.
+  const svgWidth = window.innerWidth;
+  const svgHeight = window.innerHeight;
+  
+//   // Define SVG area dimensions
+// const svgWidth = 600;
+// const svgHeight = 700;
 
 // Define the chart's margins as an object
-const chartMargin = {
-  top: 20,
-  right: 20,
-  bottom: 30,
-  left: 40
+const margin = {
+  top: 50,
+  right: 50,
+  bottom: 50,
+  left: 50
 };
 
 // Define dimensions of the chart area
-const chartWidth = svgWidth - chartMargin.left - chartMargin.right;
-const chartHeight = svgHeight - chartMargin.top - chartMargin.bottom;
 
-// Select body, append SVG area to it, and set the dimensions
-const svg = d3.select("#bar-popular")
+const chartWidth = svgWidth - margin.left - margin.right;
+const chartHeight = svgHeight - margin.top - margin.bottom;
+
+// Append SVG element
+const svg = d3.select("#scatter")
   .append("svg")
   .attr("height", svgHeight)
   .attr("width", svgWidth);
 
-
-// Append a group to the SVG area and shift ('translate') it to the right and to the bottom
+// Append group element
 const chartGroup = svg.append("g")
-  .attr("transform", `translate(${chartMargin.left}, ${chartMargin.top})`);
+  .attr("transform", `translate(${margin.left}, ${margin.top})`);
+ 
+// Read MongoDB
+const dataUrl = '/api/v1.0/states';
 
+const electionData = d3.json(dataUrl).then(electionData => {
+    console.log(electionData[0]);
+    console.log(electionData.length);
 
-  // Load data from project2_ MongoDB
-const dataUrl = '../api/v1.0/states';
-
-let electionData = []
-d3.json(dataUrl).then(electionDataTmp => {
-  console.log(electionDataTmp);
-  electionDataTmp.forEach(function(data) {
-    data.voteshare_inc = +data.voteshare_inc;
-    })
-
-  });
-
-
-
-
-// // Read CSV
-//   d3.csv('assets/data/data.csv').then(function(stateData){
-//   console.log(stateData);
-
-
-//        stateData.forEach(data => {
-//         data.healthcare = +data.healthcare;
-//         data.poverty = +data.poverty;
-//       });
-      
-//         // set X-Scale to be linear
-//         const xLinearScale = d3.scaleLinear()
-//         .domain([(d3.min(stateData, d=> d.poverty)-2), d3.max(stateData, d => d.poverty)])  
-//         .range([0, width]);     
-
-//         //set Y-Scale to be linear
-//         const yLinearScale = d3.scaleLinear()
-//         .domain([(d3.min(stateData, d=> d.healthcare)-2), d3.max(stateData, d => d.healthcare)])
-//         .range([height, 0]); 
-
-//         // create axes
-//         const xAxis = d3.axisBottom(xLinearScale);
-//         const yAxis = d3.axisLeft(yLinearScale);
-
-//         // append axes
-//         chartGroup.append("g")
-//         .attr("transform", `translate(0, ${height})`)
-//         .call(xAxis);
-
-//         chartGroup.append("g")
-//         .call(yAxis);
-
-//         // append circles
-//         const circlesGroup = chartGroup.selectAll("circle")
-//           .data(stateData)
-//           .enter()
-//           .append("circle")
-//           .attr("cx", d => xLinearScale(d.poverty))
-//           .attr("cy", d => yLinearScale(d.healthcare))
-//           .attr("r", "20")
-//           .classed("stateCircle", true)
-//           .attr("opacity", "1");
-
-//         const sliceData1 = stateData.slice(0,10);
-//         const sliceData2 = stateData.slice(20,40);
-//         const sliceData3 = stateData.slice(40,51);
-
-//         sliceData1.forEach(data => {
-//           data.poverty = +data.poverty;
-//           data.healthcare = +data.healthcare;
-//         });
-
-//         // Data Binding
-//         const textGroup = chartGroup.selectAll("null")
-//           .data(stateData)
-//           .enter()
-//           .append("text")         
-//           .attr("x", d => xLinearScale(d.poverty))
-//           .attr("y", d => yLinearScale(d.healthcare-0.1))
-//           .attr("font-size", "10px")
-//           .text(d => d.abbr)
-//           .classed("stateText", true);
-
-
+    //  Min, Max, Avg for VPI
+    const minVPI = d3.min(electionData, function(d) { return d.vpi; });
+    console.log(`VPI - min:  ${minVPI}`);
     
-//         // Axes formatting
-//         chartGroup.append("text")
-//           .attr("transform", "rotate(-90)")
-//           .attr("y", 0 - margin.left)
-//           .attr("x", 0 - (height / 2))
-//           .attr("dy", "1em")
-//           .classed('axisText', true)
-//           .text("Lacks Healthcare (%)");
+    const maxVPI = d3.max(electionData, function(d) { return d.vpi; });
+    console.log(`VPI - max:  ${maxVPI}`);
 
-//         chartGroup.append("text")
-//           .attr("transform", `translate(${(width / 2)}, ${height + margin.top -7 })`)
-//           .attr("class", "axisText")
-//           .classed('axisText', true)
-//           .text("In Poverty (%)");
+    const avgVPI = d3.mean(electionData, function(d) { return d.vpi; });
+    console.log(`VPI - avg:  ${avgVPI}`);
 
-//         // Tooltips
-//         // Step 1: Initialize Tooltip
-//         const toolTip = d3.tip()
-//         .attr("class", "tooltip")
-//         .offset([80, 60])
-//         .html(function (d) {
-//           return (`<strong>${d.state}</strong><hr>Poverty: ${d.poverty}%<br/>Lacks Healthcare: ${d.healthcare}%`);
-//         });
+    //  Min, Max, Avg for TPC
+    const minTipping = d3.min(electionData, function(d) { return d.tipping; });
+    console.log(`Tipping - min:  ${minTipping*100}`);
+    
+    const maxTipping = d3.max(electionData, function(d) { return d.tipping; });
+    console.log(`Tipping - max:  ${maxTipping*100}`);
 
-//         // Step 2: Create the tooltip in chartGroup.
-//         chartGroup.call(toolTip);
+    const avgTipping = d3.mean(electionData, function(d) { return d.tipping; });
+    console.log(`Tipping - avg:  ${avgTipping*100}`);
 
-//         // Step 3: Create "mouseover" event listener to display tooltip
-//         circlesGroup.on("mouseover", function (d) {
-//         toolTip.show(d, this);
-//         })
-//         // Step 4: Create "mouseout" event listener to hide tooltip
-//         .on("mouseout", function (d) {
-//           toolTip.hide(d);
-//         });
 
+// extract data from columns
+const summaryData = electionData.map(function(d,i) {
+
+  return {
+    state: d.state,
+    vpi: +d.vpi,
+    tipping: +d.tipping,
+    index: i + 1
+        };
+    });
+console.log(summaryData[0]);
+
+// Group by state and average by state
+const stateMetrics = d3.nest()
+  .key(function(d) { return d.state; })
+  .rollup(function(v) { return {
+    avgVPI: +d3.mean(v, function(d) { return d.vpi; }),
+    avgTipping: +d3.mean(v, function(d) { return d.tipping*100; })
+  }; 
+})
+  .entries(summaryData);
+console.log(stateMetrics);
+ 
+let i = 24
+const cleanedStateData = stateMetrics.slice(0, i).concat(stateMetrics.slice(i + 1, stateMetrics.length))
+// console.log(cleanedStateData); 
+
+i = 24
+const cleanedStateData1 = cleanedStateData.slice(0, i).concat(cleanedStateData.slice(i + 1, cleanedStateData.length))
+// console.log(cleanedStateData1); 
+
+i = 24
+const cleanedStateData2 = cleanedStateData1.slice(0, i).concat(cleanedStateData1.slice(i + 1, cleanedStateData1.length))
+// console.log(cleanedStateData2); 
+
+i = 32
+const cleanedStateData3 = cleanedStateData2.slice(0, i).concat(cleanedStateData2.slice(i + 1, cleanedStateData2.length))
+// console.log(cleanedStateData3); 
+
+i = 32
+const stateSummary = cleanedStateData3.slice(0, i).concat(cleanedStateData3.slice(i + 1, cleanedStateData3.length))
+console.log(stateSummary.reverse()); 
+
+// x scale
+const xLinearScale = d3.scaleLinear()
+    .domain([(d3.min(stateSummary, d=> d.value.avgVPI)-2), d3.max(stateSummary, d => d.value.avgVPI)])  
+    .range([0, chartWidth]); 
+
+// y scale
+const yLinearScale = d3.scaleLinear()
+    .domain([(d3.min(stateSummary, d=> d.value.avgTipping)-2), d3.max(stateSummary, d => d.value.avgTipping)])
+    .range([chartHeight, 0]);     
+
+// create and customize axes
+const xAxis = d3.axisBottom(xLinearScale);
+const yAxis = d3.axisLeft(yLinearScale);
+
+// append axes
+chartGroup.append('g').call(xAxis)
+            .attr('transform', `translate(0, ${chartHeight})`)
+            .selectAll('text')
+            .attr('transform', 'translate(-10,10)rotate(-45)')
+            .style('text-anchor', 'end')
+            .style('font-size', 12)
+            .style('fill', 'white');
+
+chartGroup.append('g').call(yAxis)
+            .selectAll('text')
+            .style('text-anchor', 'end')
+            .style('font-size', 12)
+            .style('fill', 'white');      
+
+// append circles
+const circlesGroup = chartGroup.selectAll('circle')
+    .data(stateSummary)
+    .enter()
+    .append('circle')
+    .attr('fill', 'red')
+    .attr('opacity', '.5')
+    .attr("cx", d => xLinearScale(d.value.avgVPI))
+    .attr("cy", d => yLinearScale(d.value.avgTipping))
+    .attr("r", "15")
+    .classed("stateCircle", true)
+    .on('mouseover', function (){
+        tooltip.style('display', null);
+    })
+    .on('mouseout', function() {
+        tooltip.style('display', 'none');
+    })
+    .on('mousemove', function (d) {
+        var xPos = d3.mouse(this)[0] - 75;
+        var yPos = d3.mouse(this)[1] - 50; 
+        tooltip.attr('transform', 'translate(' + xPos + ',' + yPos + ')');
+        tooltip.select('text').text(`${d.key} - VPI: ${d.value.avgVPI} & Tipping Point Chance: ${d.value.avgTipping}`)
+      });      
+      
+    // Data Binding
+    const textGroup = chartGroup.selectAll("null")
+        .data(stateSummary)
+        .enter()
+        .append("text")         
+        .attr("x", d => xLinearScale(d.value.avgVPI))
+        .attr("y", d => yLinearScale(d.value.avgTipping-0.1))
+        .attr("font-size", "10px")
+        .text(d => d.key)
+        .classed("stateText", true)
+        ;  
+
+// Axes formatting
+chartGroup.append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 0 - margin.left)
+    .attr("x", 0 - (chartHeight / 2))
+    .attr("dy", "1em")
+    .classed('axisText', true)
+    .text("Tipping Point Chance")
+    .attr('fill', 'white');
+
+chartGroup.append("text")
+    .attr("transform", `translate(${(chartWidth / 2)}, ${chartHeight + margin.top -200 })`)
+    .attr("class", "axisText")
+    .classed('axisText', true)
+    .text("Voting Power Index")
+    .attr('fill', 'white');
+
+   
+const tooltip = chartGroup.append('g')
+        .style('display', 'none')
+        .style('background-color', 'white')
+        .style('border', 'solid')
+        .style('border-width', '2px')
+        .style('border-radius', '5px')
+        .style('padding', '5px');
+
+tooltip.append('text')
+    .attr('x', 15)
+    .attr('dy', '1.2em')
+    .style('font-size', '13')
+    .style('fill', 'white')
+    .attr('font-weight', 'bold');
+
+
+    }).catch(function (error) {
+    console.log(error);
+    });
+}
   
+// When the browser loads, makeResponsive() is called.
+makeResponsive();
 
-//     }).catch(function (error) {
-//       console.log(error);
-        
+// When the browser window is resized, makeResponsive() is called.
+d3.select(window).on("resize", makeResponsive);
 
-//   });
-// }
-
-// // When the browser loads, makeResponsive() is called.
-// makeResponsive();
-
-// // When the browser window is resized, makeResponsive() is called.
-// d3.select(window).on("resize", makeResponsive);
