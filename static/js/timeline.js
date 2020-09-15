@@ -17,7 +17,7 @@ const height = svgHeight - margin.top - margin.bottom;
 // append an SVG group that will hold chart,
 // and shift the latter by left and top margins.
 // =================================
-const svg = d3.select("timeline")
+const svg = d3.select("#timeline")
   .select("body")
   .append("svg")
   .attr("width", svgWidth)
@@ -29,7 +29,7 @@ const chartGroup = svg.append("g")
 // Step 3:
 // Import data from the MongoDB
 // =================================
-const dataUrl = '/api/v1.0/state';
+const dataUrl = '/api/v1.0/states';
 
 const timeData = d3.json(dataUrl).then(timeData => {
     console.log(timeData[0]);
@@ -126,7 +126,7 @@ const timeData = d3.json(dataUrl).then(timeData => {
 });
 
 // When the browser loads, makeResponsive() is called.
-makeResponsive();
+// makeResponsive();
 
 // When the browser window is resized, makeResponsive() is called.
-d3.select(window).on("resize", makeResponsive);
+// d3.select(window).on("resize", makeResponsive);
