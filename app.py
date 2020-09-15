@@ -40,6 +40,10 @@ def apis():
         f'<a href="/api/v1.0/national">Information by Date:   /api/national</a><br/>'
     )
 
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
 # All items
 @app.route('/api/v1.0/states')
 def get_items():
