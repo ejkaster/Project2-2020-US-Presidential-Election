@@ -35,6 +35,12 @@
               <li class="nav-item">
                   <a class="nav-link" href="/votepower">Voting Power</a>
               </li>
+
+              
+              <li class="nav-item">
+                <a class="nav-link" href="/api/v1.0">APIs</a>
+            </li>
+
             </ul>
         </div>
       </nav>
@@ -45,6 +51,12 @@
         <div class="container-fluid bg-1 text-center">
           <!-- <h1>2020 U.S. Presidential Election</h1>      -->
           <p><img src="../static/Images/banner.png" style="width:400px;" alt="2020 Presidential Election Banner"></p> 
+          <p><h2>Voting Power</h2></p>
+          <p><strong>Voter Power Index (VPI)</strong> is  “the relative likelihood that an individual voter in a state will determine the Electoral College winner”, based on their election models.  The ability of a voter to change the outcome of the election is, after all, the bottom line when people think about a vote mattering.</p>
+            <p><strong>Tipping Point Chance (TPC)</strong> is  the chance the state will deliver the decisive vote in the Electoral College.</p>
+
+            <p>How much each state matters</p>
+              <p>Two measures help capture how important a state and its voters will be in determining the next president: “Tipping-point chance” is the probability that a state will provide the decisive vote in the Electoral College. “Voter power index” is the relative likelihood that an individual voter in a state will determine the Electoral College winner.</p>
         </div>
       </div>
 
@@ -53,12 +65,34 @@
 
       
       <div class="container-fluid text-center">    
-        <h3>Voting Power</h3><br>
-        <div class="row">
+                <div class="row">
             <div class="col-sm-12">
-            <p>Tipping Point Change vs Voter Power Index</p>
+            <p><h3>Tipping Point Chance vs Voter Power Index</h3></p>
+
             <div id="scatter">
               <!-- We append our chart here. -->
+              <br><br><br><br>
+              <select id="inds">
+                <option value="TX" selected="TX">TX</option>
+                <option value="FL">FL</option>
+                <option value="LA">LA</option>
+            </select>
+            <div id="legendContainer" class="legendContainer">
+              <svg id="legend"></svg>
+            </div>
+            <div id="showAll">
+              <input name="showAllButton"
+               type="button"
+               value="Show All"
+               onclick="showAll()" />
+            </div>
+            <div id="clearAll">
+              <input name="clearAllButton"
+               type="button"
+               value="Clear All"
+               onclick="clearAll()" />
+            </div>
+
             </div>
           </div>
 
@@ -78,7 +112,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script src="https://d3js.org/d3.v5.min.js"></script>
-  <script type="text/javascript" src="../static/js/scatter.js"></script>  
+  <script type="text/javascript" src="/static/js/scatter.js"></script>  
 
 </body>
 ​
