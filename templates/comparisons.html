@@ -11,34 +11,32 @@
 ​
   <body>
     <!-- Navbar -->
-	<div class="navigation">
-	  <nav class="navbar fixed-top navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="/">'Murica</a>
-        <button class="navbar-toggler border" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-​
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/comparisons">Pop v Electoral</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="/timeline">Timeline</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="/votepower">Voting Power</a>
-              </li>
-            
-              <li class="nav-item">
-                <a class="nav-link" href="/api/v1.0">APIs</a>
-            </li>
 
-            </ul>
-        </div>
+    <div class="navigation">
+      <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+        <!-- Brand -->
+        <a class="navbar-brand" href="/"><img src="../static/Images/USA.png" alt="USA Icon"></a>
+      
+        <!-- Links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">Charts</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="/comparisons">Popular v Electoral Vote</a>
+                <a class="dropdown-item" href="/timeline">Timeline</a>
+                <a class="dropdown-item" href="/votepower">Voting Power</a>
+            </div>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="/api/v1.0">APIs</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="/about">About</a>
+          </li>
+        </ul>
       </nav>
     </div>
     
@@ -46,7 +44,7 @@
     <div class="jumbotron">
         <div class="container-fluid bg-1 text-center">
           <!-- <h1>2020 U.S. Presidential Election</h1>      -->
-          <p><img src="../static/Images/banner.png" style="width:400px;" alt="2020 Presidential Election Banner"></p> 
+          <p><img src="../static/Images/banner.png" style="width:800px;" alt="2020 Presidential Election Banner"></p> 
           <p><h2>Popular vs Electoral Vote</h2></p>
           <p>The framers of the Constitution established the Electoral College in the Constitution to forge a compromise between those who wanted the president to be elected by members of Congress - <strong>electoral vote</strong>,  and those who wanted a president elected by a <strong>popular vote</strong>.</p>
           <p>Today, 538 electors constitute the Electoral College. Each state is allocated electors equal to its number of representatives in the U.S. House of Representatives (currently a total of 435) plus its two senators (a total of 100). The District of Columbia is also allocated three electors. These numbers can change every 10 years, based on the results of the census. State laws differ on how electors are chosen. </p>
