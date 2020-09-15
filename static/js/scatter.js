@@ -24,9 +24,9 @@ function makeResponsive() {
 // Define the chart's margins as an object
 const margin = {
   top: 50,
-  right: 50,
-  bottom: 50,
-  left: 50
+  right: 75,
+  bottom: 250,
+  left: 75
 };
 
 // Define dimensions of the chart area
@@ -133,7 +133,7 @@ const yAxis = d3.axisLeft(yLinearScale);
 chartGroup.append('g').call(xAxis)
             .attr('transform', `translate(0, ${chartHeight})`)
             .selectAll('text')
-            .attr('transform', 'translate(-10,10)rotate(-45)')
+            // .attr('transform', 'translate(-10,10)rotate(-45)')
             .style('text-anchor', 'end')
             .style('font-size', 12)
             .style('fill', 'white');
@@ -178,6 +178,7 @@ const circlesGroup = chartGroup.selectAll('circle')
         .attr("font-size", "10px")
         .text(d => d.key)
         .classed("stateText", true)
+        .attr('fill', 'white')
         ;  
 
 // Axes formatting
@@ -191,7 +192,7 @@ chartGroup.append("text")
     .attr('fill', 'white');
 
 chartGroup.append("text")
-    .attr("transform", `translate(${(chartWidth / 2)}, ${chartHeight + margin.top -200 })`)
+    .attr("transform", `translate(${(chartWidth / 2)}, ${chartHeight + margin.top +100 })`)
     .attr("class", "axisText")
     .classed('axisText', true)
     .text("Voting Power Index")
