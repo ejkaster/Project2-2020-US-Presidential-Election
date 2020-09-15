@@ -18,7 +18,6 @@ const height = svgHeight - margin.top - margin.bottom;
 // and shift the latter by left and top margins.
 // =================================
 const svg = d3.select("#timeline")
-  .select("body")
   .append("svg")
   .attr("width", svgWidth)
   .attr("height", svgHeight);
