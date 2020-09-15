@@ -6,7 +6,7 @@ body{
 
 .navbar{
 	color: white;
-	max-height: 50px; 
+	max-height: 60px; 
 	background-color: #981526; 
 	font-size: 15px; 
 	font-family: Georgia, Times, "Times New Roman", serif;
@@ -21,18 +21,18 @@ body{
 	color: white;
 	padding: inherit; 
 	font-weight: bold; 
-	background-color: #6E92AE;
+	/* background-color: #6E92AE; */
 	font-family: Georgia, Times, "Times New Roman", serif;
 
 }
 
-.dropdown-item{
-    color: #dd5ecc; 
+/* .dropdown-item{
+    color: #6E92AE;  */
 }
 
 .dropdown-menu .dropdown-item:hover, .dropdown-menu .dropdown-item:active{
 	background-color:#E74B60; 
-	margin-right: 100px; 
+	margin-right: 10px; 
 }
 
 .nav-link:hover{
@@ -62,9 +62,9 @@ body{
 
 
 /* Media Queries */
-@media (max-width: 1500px){
-	.navbar-expand-lg{
-		background-color: #a16a9a;
+@media (max-width: 1200px){
+	.navbar-expand-md{
+		background-color: #981526;
 	}
 	.navbar{
 		max-height: none; 
@@ -105,7 +105,7 @@ body{
 .description-header, .imageNav-header {
 	padding-top: 15px; 
 	padding-left: 4px;
-	color: #6E92AE;
+	/* color: #6E92AE; */
 	font-size: 26px;
 	font-weight: bold;
 	font-family: Georgia, Times, "Times New Roman", serif;
@@ -134,6 +134,68 @@ h3{
 
 }
 .active, .imageNav-photo:hover{
-    border-color:#8b157c;
+    border-color:#981526;
     border-style: solid; 
+}
+
+
+/* 
+
+Test Code for Drop Down Menu
+*/
+
+path {
+    stroke: #ccc;
+    stroke-width: 2;
+    fill: none;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+}
+#legendContainer{
+	position:absolute;
+	top:60px;
+	left:10px;
+	overflow: auto;
+	height:490px;
+	width:110px;
+}
+#legend{
+	width:90px;
+	height:200px;
+}
+.legend {
+    font-size: 12px;
+    font-weight: normal;
+    text-anchor: left;
+}
+.legendcheckbox{
+	cursor: pointer;
+}
+#showAll{
+	position:absolute;
+	top:600px;
+	left:880px;
+}
+#clearAll{
+	position:absolute;
+	top:600px;
+	left:950px;
+}
+input{
+	border-radius:5px;
+	padding:5px 10px;
+	background:#999;
+	border:0;
+	color:#fff;
+}
+#inds{
+	position:absolute;
+	top:10px;
+	left:10px;
 }
