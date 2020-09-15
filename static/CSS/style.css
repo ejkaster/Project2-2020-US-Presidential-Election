@@ -26,8 +26,8 @@ body{
 
 }
 
-/* .dropdown-item{
-    color: #6E92AE;  */
+.dropdown-item{
+    color: #6E92AE; 
 }
 
 .dropdown-menu .dropdown-item:hover, .dropdown-menu .dropdown-item:active{
@@ -43,23 +43,18 @@ body{
 	padding-top: 70px;
 	padding-bottom: 70px;
   }
-/*   
+
+  
 .bg-1{
     background-color:#ffffff;
-    background-image: url("Images/pexels-aaron-schwartz-1093645.jpg");
+    /* background-image: url("Images/pexels-aaron-schwartz-1093645.jpg"); */
   	background-size: cover;
     color: #06113C;
-  } */
+  }
 
-/* .jumbotron{
-    background: url("/Images/pexels-aaron-schwartz-1093645.jpg") no-repeat center center; 
-    -webkit-background-size: 100% 100%;
-    -moz-background-size: 100% 100%;
-    -o-background-size: 100% 100%;
-    background-size: 100% 100%;
-} */
-
-
+  .jumbotron{
+	background-color:#ffffff;
+  }
 
 /* Media Queries */
 @media (max-width: 1200px){
@@ -123,7 +118,7 @@ img{
 }
 
 p{
-	color: #414d4a;
+	color: #697379;
 	font-size: 14px;
 	font-family: Arial, Helvetica, sans-serif;
 }
@@ -131,8 +126,14 @@ p{
 h3{
 	color: white;
 	font-family: Georgia, Times, "Times New Roman", serif;
-
 }
+
+h4{
+	color: #6E92AE;
+	font-family: Georgia, Times, "Times New Roman", serif;
+}
+
+
 .active, .imageNav-photo:hover{
     border-color:#981526;
     border-style: solid; 
