@@ -1,3 +1,9 @@
+// Step 0: Get base url for API requests
+var getUrl = window.location;
+var baseUrl = getUrl .protocol + "//" + getUrl.host;
+console.log("baseUrl", baseUrl)
+
+
 // Step 1: Set up our chart
 //= ================================
 const svgWidth = 960;
@@ -28,7 +34,7 @@ const chartGroup = svg.append("g")
 // Step 3:
 // Import data from the MongoDB
 // =================================
-const dataUrl = '/api/v1.0/states';
+const dataUrl = baseUrl + '/api/v1.0/states';
 
 const timeData = d3.json(dataUrl).then(timeData => {
     console.log(timeData[0]);
