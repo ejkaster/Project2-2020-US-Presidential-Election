@@ -16,12 +16,12 @@ Our intent is to manipulate data and transform it to ultimately create 3-4 graph
 
 
 ## Visualization Inspiration:
-![Inspo1](Images/Inspo1.PNG)
-![Inspo2](Images/Inspo2.PNG)
-![Inspo3](Images/Inspo3.PNG)
+![Inspo1](static/Images/Inspo1.PNG)
+![Inspo2](static/Images/Inspo2.PNG)
+![Inspo3](static/Images/Inspo3.PNG)
 
 ## Sketch:
-![SketchHome](Images/SketchHome.png)
-![SketchPg1](Images/SketchPg1.png)
-![SketchPg2](Images/SketchPg2.png)
-![SketchPg3](Images/SketchPg3.png)
+![SketchHome](static/Images/SketchHome.png)
+![SketchPg1](static/Images/SketchPg1.png)
+![SketchPg2](static/Images/SketchPg2.png)
+![SketchPg3](static/Images/SketchPg3.png)
