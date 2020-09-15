@@ -122,6 +122,19 @@ p{
 	font-family: Arial, Helvetica, sans-serif;
 }
 
+strong{
+	color: #E74B60;
+}
+
+
+a:link, a:visited {
+	color: #6E92AE;
+  }
+
+  a:hover, a:active {
+	color: rgb(102, 172, 212);
+  }
+
 h3{
 	color: white;
 	font-family: Georgia, Times, "Times New Roman", serif;
