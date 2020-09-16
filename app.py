@@ -9,6 +9,7 @@ class CustomJSONEncoder(JSONEncoder):
     def default(self, obj): return json_util.default(obj)
 
 app = Flask(__name__)
+app.static_folder = 'static'
 app.json_encoder = CustomJSONEncoder
 
 
