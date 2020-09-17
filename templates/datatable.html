@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+
+    <title>2020 U.S. Presidential Election</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	  <link rel="stylesheet" href="{{ url_for('static', filename='CSS/style.css') }}">
+  </head>
+​
+  <body>
+   <!-- Navbar -->
+
+   <div class="navigation">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+      <!-- Brand -->
+      <a class="navbar-brand" href="/"><img src="../static/Images/USA.png" alt="USA Icon"></a>
+    
+      <!-- Links -->
+      <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">Charts</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="/comparisons">Popular v Electoral Vote</a>
+              <a class="dropdown-item" href="/timeline">Timeline</a>
+              <a class="dropdown-item" href="/votepower">Voting Power</a>
+          </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/about">About</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+    
+
+    <div class="jumbotron">
+        <div class="container-fluid bg-1 text-center">
+          <!-- <h1>2020 U.S. Presidential Election</h1>      -->
+          <p><img src="../static/Images/banner.png" style="width:800px;" alt="2020 Presidential Election Banner"></p> 
+        </div>
+      </div>
+
+  
+      <div class="hero text-center">
+        <h1>U.S. Presidential Election Statistics</h1>
+      </div>
+      <div class="container">
+        <div class="row margin-top-30">
+          <div class="col-md-2">
+            <aside class="filters">
+              <div class="panel panel-default">
+                <div class="panel-heading">Filter Search</div>
+                <div class="panel-body">
+                  <form>
+                    <div class="form-group">
+                      <ul class="list-group" id="filters">
+                        <li class="filter list-group-item">
+                          <label for="date">Enter a State</label>
+                          <input class="form-control" id="datetime" type="text" placeholder="Texas">
+                        </li>
+                      </ul>
+                    </div>
+                    <button id="filter-btn" type="button" class="btn btn-default">Filter Table</button>
+                  </form>
+                </div>
+              </div>
+            </aside>
+          </div>
+          <div class="col-md-10">
+            <div id="table-area" class="">
+              <table id="ufo-table" class="table table-striped">
+                <thead>
+                  <tr>
+                    <th class="table-head">Margin</th>
+                    <th class="table-head">Date</th>
+                    <th class="table-head">State</th>
+                    <th class="table-head">Tipping</th> 
+                    <th class="table-head">Vote share (Biden)</th>
+                    <th class="table-head">Vote share (Trump)</th>
+                    <th class="table-head">Vote Power</th>
+                    <th class="table-head">Chance of winning (Biden)</th>
+                    <th class="table-head">Chance of winning (Trump)</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+​
+<footer class="container-fluid bg-4 text-center">
+    <p>Rice Data Science Bootcamp</p> 
+  </footer>
+  
+​
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script type="text/javascript" src="../static/js/table.js"></script> 
+
+</body>
+​
+</html>
