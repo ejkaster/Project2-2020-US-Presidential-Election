@@ -1,5 +1,5 @@
 //   // Define SVG area dimensions
-const svgWidth = 600;
+const svgWidth = 960;
 const svgHeight = 700;
 
 // Define the chart's margins as an object
@@ -82,34 +82,34 @@ const popVoteChart = async () => {
     .entries(summaryData);
   console.log(stateMetrics);
 
-  // let i = 24
-  // const cleanedStateData = stateMetrics.slice(0, i).concat(stateMetrics.slice(i + 1, stateMetrics.length))
-  // // console.log(cleanedStateData); 
+  let i = 24
+  const cleanedStateData = stateMetrics.slice(0, i).concat(stateMetrics.slice(i + 1, stateMetrics.length))
+  // console.log(cleanedStateData); 
 
-  // i = 24
-  // const cleanedStateData1 = cleanedStateData.slice(0, i).concat(cleanedStateData.slice(i + 1, cleanedStateData.length))
-  // // console.log(cleanedStateData1); 
+  i = 24
+  const cleanedStateData1 = cleanedStateData.slice(0, i).concat(cleanedStateData.slice(i + 1, cleanedStateData.length))
+  // console.log(cleanedStateData1); 
 
-  // i = 24
-  // const cleanedStateData2 = cleanedStateData1.slice(0, i).concat(cleanedStateData1.slice(i + 1, cleanedStateData1.length))
-  // // console.log(cleanedStateData2); 
+  i = 24
+  const cleanedStateData2 = cleanedStateData1.slice(0, i).concat(cleanedStateData1.slice(i + 1, cleanedStateData1.length))
+  // console.log(cleanedStateData2); 
 
-  // i = 32
-  // const cleanedStateData3 = cleanedStateData2.slice(0, i).concat(cleanedStateData2.slice(i + 1, cleanedStateData2.length))
-  // // console.log(cleanedStateData3); 
+  i = 32
+  const cleanedStateData3 = cleanedStateData2.slice(0, i).concat(cleanedStateData2.slice(i + 1, cleanedStateData2.length))
+  // console.log(cleanedStateData3); 
 
-  // i = 32
-  // const stateSummary = cleanedStateData3.slice(0, i).concat(cleanedStateData3.slice(i + 1, cleanedStateData3.length))
-  // console.log(stateSummary.reverse());
+  i = 32
+  const stateSummary = cleanedStateData3.slice(0, i).concat(cleanedStateData3.slice(i + 1, cleanedStateData3.length))
+  console.log(stateSummary.reverse());
 
   // x scale
   const xLinearScale = d3.scaleLinear()
-    .domain([(d3.min(stateMetrics, d => d.avgVPI) - 2), d3.max(stateMetrics, d => d.avgVPI)])
+    .domain([(d3.min(stateSummary, d => d.value.avgVPI) - 2), d3.max(stateSummary, d => d.value.avgVPI)])
     .range([0, chartWidth]);
 
   // y scale
   const yLinearScale = d3.scaleLinear()
-    .domain([(d3.min(stateMetrics, d => d.avgTipping) - 2), d3.max(stateMetrics, d => d.avgTipping)])
+    .domain([(d3.min(stateSummary, d => d.value.avgTipping) - 2), d3.max(stateSummary, d => d.value.avgTipping)])
     .range([chartHeight, 0]);
 
   // create and customize axes
@@ -133,13 +133,13 @@ const popVoteChart = async () => {
 
   // append circles
   const circlesGroup = chartGroup.selectAll('circle')
-    .data(stateMetrics)
+    .data(stateSummary)
     .enter()
     .append('circle')
     .attr('fill', 'red')
     .attr('opacity', '.5')
-    .attr("cx", d => xLinearScale(d.avgVPI))
-    .attr("cy", d => yLinearScale(d.avgTipping))
+    .attr("cx", d => xLinearScale(d.value.avgVPI))
+    .attr("cy", d => yLinearScale(d.value.avgTipping))
     .attr("r", "15")
     .classed("stateCircle", true)
     .on('mouseover', function () {
@@ -152,16 +152,16 @@ const popVoteChart = async () => {
       var xPos = d3.mouse(this)[0] - 75;
       var yPos = d3.mouse(this)[1] - 50;
       tooltip.attr('transform', 'translate(' + xPos + ',' + yPos + ')');
-      tooltip.select('text').text(`${d.state} - VPI: ${d.avgVPI} & Tipping Point Chance: ${d.avgTipping}`)
+      tooltip.select('text').text(`${d.key} - VPI: ${d.value.avgVPI} & Tipping Point Chance: ${d.value.avgTipping}`)
     });
 
   // Data Binding
   const textGroup = chartGroup.selectAll("null")
-    .data(stateMetrics)
+    .data(stateSummary)
     .enter()
     .append("text")
-    .attr("x", d => xLinearScale(d.avgVPI))
-    .attr("y", d => yLinearScale(d.avgTipping - 0.1))
+    .attr("x", d => xLinearScale(d.value.avgVPI))
+    .attr("y", d => yLinearScale(d.value.avgTipping - 0.1))
     .attr("font-size", "10px")
     .text(d => d.key)
     .classed("stateText", true)
