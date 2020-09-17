@@ -1,6 +1,6 @@
 from flask import render_template
 from flask import Flask, jsonify
-from fetch_from_db import fetch_states, fetch_national, fetch_popular
+from fetch_from_db import fetch_states, fetch_national, fetch_popular, fetch_table
 
 from bson import json_util, ObjectId
 from flask.json import JSONEncoder
@@ -19,17 +19,25 @@ app.json_encoder = CustomJSONEncoder
 def welcome():
     return render_template("index.html")
 
+# Comparisons
 @app.route("/comparisons")
 def comparisons():
     return render_template("comparisons.html")
 
+# Timeline/Table
 @app.route("/timeline")
 def timeline():
     return render_template("timeline.html")
 
+# Votepower
 @app.route("/votepower")
 def votepower():
     return render_template("votepower.html")
+
+# About/Resources/Sources
+@app.route("/about")
+def about():
+    return render_template("about.html")
 
 # API Homepage
 @app.route('/api/v1.0')
@@ -40,13 +48,10 @@ def apis():
         f'<a href="/api/v1.0/states">/api/states</a><br/>'
         f'<a href="/api/v1.0/national">/api/national</a><br/>'
         f'<a href="/api/v1.0/popular">/api/popular</a><br/>'
+        f'<a href="/api/v1.0/popular">/api/table</a><br/>'
 )
 
-@app.route("/about")
-def about():
-    return render_template("about.html")
-
-# All items
+# All API items
 @app.route('/api/v1.0/states')
 def get_items():
     states = fetch_states()
@@ -61,6 +66,11 @@ def get_national():
 def get_popular():
     popular = fetch_popular()
     return jsonify(popular)
+
+@app.route('/api/v1.0/table')
+def get_table():
+    table = fetch_table()
+    return jsonify(table)
 
 
 if __name__ == '__main__':
