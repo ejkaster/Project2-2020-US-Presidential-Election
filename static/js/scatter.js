@@ -179,7 +179,7 @@ const popVoteChart = async () => {
     .attr('fill', 'white');
 
   chartGroup.append("text")
-    .attr("transform", `translate(${(chartWidth / 2)}, ${chartHeight + margin.top + 100})`)
+    .attr("transform", `translate(${(chartWidth / 2)}, ${chartHeight + margin.top + 20})`)
     .attr("class", "axisText")
     .classed('axisText', true)
     .text("Voting Power Index")
