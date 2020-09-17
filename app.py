@@ -1,6 +1,6 @@
 from flask import render_template
 from flask import Flask, jsonify
-from fetch_from_db import fetch_states, fetch_national
+from fetch_from_db import fetch_states, fetch_national, fetch_popular
 
 from bson import json_util, ObjectId
 from flask.json import JSONEncoder
@@ -40,7 +40,7 @@ def apis():
         f'<a href="/api/v1.0/states">/api/states</a><br/>'
         f'<a href="/api/v1.0/national">/api/national</a><br/>'
         f'<a href="/api/v1.0/popular">/api/popular</a><br/>'
-    )
+)
 
 @app.route("/about")
 def about():
@@ -56,7 +56,6 @@ def get_items():
 def get_national():
     national = fetch_national()
     return jsonify(national)
-
 
 @app.route('/api/v1.0/popular')
 def get_popular():
