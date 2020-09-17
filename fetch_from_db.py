@@ -12,14 +12,28 @@ def get_db():
 def fetch_states():
     #  return States collection from Mongodb
     db = get_db()
-    states = [state for state in db.presidential_state_toplines_2020.find({})]
+    states = [state for state in db.presidential_state_toplines_2020.find({},{"state":1,"vpi":1,"tipping":1})]
     return states
+
+def fetch_popular():
+    #  return States collection from Mongodb
+    db = get_db()
+    popular = [state for state in db.presidential_state_toplines_2020.find({},{"modeldate":1,"voteshare_inc":1,"voteshare_chal":1})]
+    return popular
+
+
+# def fetch_states():
+#     #  return States collection from Mongodb
+#     db = get_db()
+#     states = [state for state in db.presidential_state_toplines_2020.find({},{"modeldate":1,"state":1,"voteshare_inc":1, "voteshare_chal":1})]
+#     return states
 
 def fetch_national():
     #  return National collection from Mongodb
     db = get_db()
-    national = [day for day in db.presidential_national_toplines_2020.find({})]
+    national = [day for day in db.presidential_national_toplines_2020.find({},{"modeldate":1,"ev_inc":1,"ev_chal":1})]
     return national
+
 
 
 

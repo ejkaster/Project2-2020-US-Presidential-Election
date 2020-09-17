@@ -37,8 +37,9 @@ def apis():
     return(
         f'<h1 align=center>2020 Presidential Election API</h1><br/>'
         f'<b>List of available routes </b> - <i>access data using paths below:</i><br/>'
-        f'<a href="/api/v1.0/states">Information by State:  /api/states</a><br/>'
-        f'<a href="/api/v1.0/national">Information by Date:   /api/national</a><br/>'
+        f'<a href="/api/v1.0/states">/api/states</a><br/>'
+        f'<a href="/api/v1.0/national">/api/national</a><br/>'
+        f'<a href="/api/v1.0/popular">/api/popular</a><br/>'
     )
 
 @app.route("/about")
@@ -55,6 +56,12 @@ def get_items():
 def get_national():
     national = fetch_national()
     return jsonify(national)
+
+
+@app.route('/api/v1.0/popular')
+def get_popular():
+    popular = fetch_popular()
+    return jsonify(popular)
 
 
 if __name__ == '__main__':
