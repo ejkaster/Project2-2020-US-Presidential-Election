@@ -1,5 +1,5 @@
 body {
-	background-color: #34437e;
+	background-color: #06113C; ;
 	height: 100%;
 	min-height: 100%;
 }
@@ -78,6 +78,15 @@ body {
 	outline: none;
   }
   
+  #filter-btn {
+    color: white;
+    font-size: large;
+}
+.panel-heading {
+    color: white;
+    font-size: large;
+}
+
   #table-area th {
 	text-align: center;
   }
