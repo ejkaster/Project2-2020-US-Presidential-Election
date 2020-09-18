@@ -1,79 +1,123 @@
-body{
-	background-color: #06113C; 
+body {
+	background-color: #34437e;
 	height: 100%;
 	min-height: 100%;
 }
 
-.navbar{
+.navbar {
 	color: white;
-	max-height: 60px; 
-	background-color: #981526; 
-	font-size: 15px; 
+	max-height: 60px;
+	background-color: #981526;
+	font-size: 15px;
 	font-family: Georgia, Times, "Times New Roman", serif;
-	
+
 }
 
 .navbar li a:hover {
 	color: #ffffff;
-  }
+}
 
-.navigation .navbar-brand{
+.navigation .navbar-brand {
 	color: white;
-	padding: inherit; 
-	font-weight: bold; 
+	padding: inherit;
+	font-weight: bold;
 	font-family: Georgia, Times, "Times New Roman", serif;
 
 }
 
-.dropdown-item{
-    color: #6E92AE; 
+.dropdown-item {
+	color: #6E92AE;
 }
 
-.dropdown-menu .dropdown-item:hover, .dropdown-menu .dropdown-item:active{
-	background-color:#E74B60; 
-	margin-right: 10px; 
+.dropdown-menu .dropdown-item:hover,
+.dropdown-menu .dropdown-item:active {
+	background-color: #E74B60;
+	margin-right: 10px;
 }
 
-.nav-link:hover{
-    background-color:#E74B60;
+.nav-link:hover {
+	background-color: #E74B60;
 }
 
 .container-fluid {
 	padding-top: 70px;
 	padding-bottom: 70px;
-  }
+	color: white;
+}
 
+
+.bg-1 {
+	background-color: #ffffff;
+	background-size: cover;
+	color: #06113C;
+}
+
+.jumbotron {
+	background-color: #ffffff;
+}
+
+
+  /* Adding styles to the aside and filter form */
+  .election-form {
+	margin-top: 50px;
+  }
   
-.bg-1{
-    background-color:#ffffff;
-    /* background-image: url("Images/pexels-aaron-schwartz-1093645.jpg"); */
-  	background-size: cover;
-    color: #06113C;
+  .filters .panel-body {
+	padding: 0;
   }
-
-  .jumbotron{
-	background-color:#ffffff;
+  
+  .filters {
+	margin-top: 10px;
+  }
+  
+  select {
+	display: block;
+	width: 100%;
+	padding: 8px;
+	color: #8e979f;
+	outline: none;
+  }
+  
+  #table-area th {
+	text-align: center;
+  }
+  
+  #table-area th:first-child,
+  #table-area th:nth-child(2),
+  #table-area th:nth-child(6) {
+	min-width: 70px;
+  }
+  
+  .loader {
+	margin-top: 50px;
+  }
+  
+  .margin-top-50 {
+	margin-top: 50px;
   }
 
 /* Media Queries */
-@media (max-width: 1200px){
-	.navbar-expand-md{
+@media (max-width: 1200px) {
+	.navbar-expand-md {
 		background-color: #981526;
 	}
-	.navbar{
-		max-height: none; 
+
+	.navbar {
+		max-height: none;
 		padding: inherit;
 	}
-	.navbar div{
-		margin: inherit; 
-		background-color: white;  
-	}
-	.navbar-brand{
-		padding: 10px; 
+
+	.navbar div {
+		margin: inherit;
+		background-color: white;
 	}
 
-	button{
-		margin-left: auto; 
+	.navbar-brand {
+		padding: 10px;
+	}
+
+	button {
+		margin-left: auto;
 	}
 
 	button:focus {
@@ -96,8 +140,10 @@ body{
 	color: black;
 	background-color: white;
 }
-.description-header, .imageNav-header {
-	padding-top: 15px; 
+
+.description-header,
+.imageNav-header {
+	padding-top: 15px;
 	padding-left: 4px;
 	/* color: #6E92AE; */
 	font-size: 26px;
@@ -105,7 +151,7 @@ body{
 	font-family: Georgia, Times, "Times New Roman", serif;
 }
 
-img{
+img {
 	width: 100%;
 	height: 100%;
 }
@@ -116,39 +162,42 @@ img{
 	height: 60%;
 }
 
-p{
+p {
 	color: #697379;
 	font-size: 14px;
 	font-family: Arial, Helvetica, sans-serif;
 }
 
-strong{
+strong {
 	color: #E74B60;
 }
 
 
-a:link, a:visited {
+a:link,
+a:visited {
 	color: #6E92AE;
-  }
+}
 
-  a:hover, a:active {
+a:hover,
+a:active {
 	color: rgb(102, 172, 212);
-  }
+}
 
-h3{
+h3 {
 	color: white;
 	font-family: Georgia, Times, "Times New Roman", serif;
 }
 
-h4{
+h4 {
 	color: #6E92AE;
 	font-family: Georgia, Times, "Times New Roman", serif;
 }
 
 
-.active, .imageNav-photo:hover{
-    border-color:#981526;
-    border-style: solid; 
+.active,
+.imageNav-photo:hover {
+	border-color: #981526;
+	border-style: solid;
 }
 
 
@@ -158,57 +207,66 @@ Test Code for Drop Down Menu
 */
 
 path {
-    stroke: #ccc;
-    stroke-width: 2;
-    fill: none;
+	stroke: #ccc;
+	stroke-width: 2;
+	fill: none;
 }
 
 .axis path,
 .axis line {
-    fill: none;
-    stroke: grey;
-    stroke-width: 1;
-    shape-rendering: crispEdges;
+	fill: none;
+	stroke: grey;
+	stroke-width: 1;
+	shape-rendering: crispEdges;
 }
-#legendContainer{
-	position:absolute;
-	top:60px;
-	left:10px;
+
+#legendContainer {
+	position: absolute;
+	top: 60px;
+	left: 10px;
 	overflow: auto;
-	height:490px;
-	width:110px;
+	height: 490px;
+	width: 110px;
 }
-#legend{
-	width:90px;
-	height:200px;
+
+#legend {
+	width: 90px;
+	height: 200px;
 }
+
 .legend {
-    font-size: 12px;
-    font-weight: normal;
-    text-anchor: left;
+	font-size: 12px;
+	font-weight: normal;
+	text-anchor: left;
 }
-.legendcheckbox{
+
+.legendcheckbox {
 	cursor: pointer;
 }
-#showAll{
-	position:absolute;
-	top:600px;
-	left:880px;
+
+#showAll {
+	position: absolute;
+	top: 600px;
+	left: 880px;
 }
-#clearAll{
-	position:absolute;
-	top:600px;
-	left:950px;
+
+#clearAll {
+	position: absolute;
+	top: 600px;
+	left: 950px;
 }
-input{
-	border-radius:5px;
-	padding:5px 10px;
-	background:#999;
-	border:0;
-	color:#fff;
+
+input {
+	border-radius: 5px;
+	padding: 5px 10px;
+	background: #999;
+	border: 0;
+	color: #fff;
 }
-#inds{
-	position:absolute;
-	top:10px;
-	left:10px;
+
+#inds {
+	position: absolute;
+	top: 10px;
+	left: 10px;
 }
+

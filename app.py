@@ -34,6 +34,11 @@ def timeline():
 def votepower():
     return render_template("votepower.html")
 
+# Data Table
+@app.route("/datatable")
+def datatable():
+    return render_template("datatable.html")
+
 # About/Resources/Sources
 @app.route("/about")
 def about():
@@ -48,7 +53,7 @@ def apis():
         f'<a href="/api/v1.0/states">/api/states</a><br/>'
         f'<a href="/api/v1.0/national">/api/national</a><br/>'
         f'<a href="/api/v1.0/popular">/api/popular</a><br/>'
-        f'<a href="/api/v1.0/popular">/api/table</a><br/>'
+        f'<a href="/api/v1.0/table">/api/table</a><br/>'
 )
 
 # All API items
